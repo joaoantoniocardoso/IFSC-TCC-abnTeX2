@@ -17,27 +17,27 @@
     \renewcommand{\imprimirtextoaprovacao}{
         \begin{center}#1\end{center}
     }
-} 
+}
 \newcommand{\imprimiraprovacao}{
     \begin{folhadeaprovacao}
         \begin{center}
             \ABNTEXchapterfont\SingleSpacing\bfseries\Large\MakeUppercase\imprimirtitulo
             \vspace*{2.0cm}
-            
+
             \ABNTEXchapterfont\normalsize\bfseries\MakeUppercase\imprimirautor
             \vspace*{1.0cm}
         \end{center}
-        
+
         \noindent\OnehalfSpacing\imprimirtextoaprovacao
-        
+
         \vspace*{1.0cm}
-        \begin{center}    
+        \begin{center}
             \imprimirlocal, 12 de março, 2021.
         \end{center}
-        
+
         \noindent Banca Examinadora:
-        
-        \assinatura{\imprimirorientador, Dr.} 
+
+        \assinatura{\imprimirorientador, Dr.}
         \@ifundefined{\imprimircoorientador}{}{
         	\assinatura{\imprimircoorientador, Dr.}
         }
@@ -77,8 +77,8 @@
 % ----------------------------------------------------------
 \newcommand{\sortitem}[2]{%
     \DTLnewrow{sortlist}%
-    \DTLnewdbentry{sortlist}{sig}{#1}% 
-    \DTLnewdbentry{sortlist}{desc}{#2}% 
+    \DTLnewdbentry{sortlist}{sig}{#1}%
+    \DTLnewdbentry{sortlist}{desc}{#2}%
 }
 
 \newenvironment{sortsiglas}{%
@@ -93,7 +93,7 @@
 \makeatletter
 
 % \abreviatura{abrev.}{definição}
-% ret = 
+% ret =
 \newcommand{\abreviatura}[2]{%
     \write\@auxout{\noexpand\@writefile{abrv}{\noexpand\sortitem{#1}{\xmakefirstuc{#2}}}}%
 }%
@@ -113,16 +113,16 @@
 }%
 
 % \abreviatura'{abrev.}{definição}{tradução}
-% ret = 
+% ret =
 \WithSuffix\newcommand\abreviatura'[3]{%
-    \write\@auxout{\noexpand\@writefile{abrv}{\noexpand\sortitem{#1}{\textit{\xmakefirstuc{#2}} - \xmakefirstuc{#3}}}}%
+    \write\@auxout{\noexpand\@writefile{abrv}{\noexpand\sortitem{#1}{\textit{#2} - \xmakefirstuc{#3}}}}%
 }%
 
 % \abreviatura&{abrev.}{definição}{tradução}
 % ret = tradução (definição - abrev.)
 \WithSuffix\newcommand\abreviatura&[3]{%
     #3 (\textit{#2} - #1)%
-    \write\@auxout{\noexpand\@writefile{abrv}{\noexpand\sortitem{#1}{\textit{\xmakefirstuc{#2}} - \xmakefirstuc{#3}}}}%
+    \write\@auxout{\noexpand\@writefile{abrv}{\noexpand\sortitem{#1}{\textit{#2} - \xmakefirstuc{#3}}}}%
 }%
 
 \newcommand{\imprimirlistadeabreviaturas}{%
@@ -147,16 +147,16 @@
 \makeatletter
 
 % \simbolo{simbolo}{definição}
-% ret = 
+% ret =
 \newcommand{\simbolo}[2]{%
-    \write\@auxout{\noexpand\@writefile{asbl}{\noexpand\sortitem{#1}{#2}}}%%{\xmakefirstuc{#2}}}}%
+    \write\@auxout{\noexpand\@writefile{asbl}{\noexpand\sortitem{#1}{\xmakefirstuc{#2}}}}%
 }%
 
 % \simbolo*{simbolo}{definição}
 % ret = simbolo
 \WithSuffix\newcommand\simbolo*[2]{%
     #1%
-    \write\@auxout{\noexpand\@writefile{asbl}{\noexpand\sortitem{#1}{#2}}}%%{\xmakefirstuc{#2}}}}%
+    \write\@auxout{\noexpand\@writefile{asbl}{\noexpand\sortitem{#1}{\xmakefirstuc{#2}}}}%
 }%
 
 \newcommand{\imprimirlistadesimbolos}{%
@@ -197,7 +197,7 @@
 % Comando para escrever com subscrito em equações
 % ----------------------------------------------------------
 \newcommand{\subx}[2]{\text{#1}_\text{#2}}%
-    
+
 % ----------------------------------------------------------
 % Comandos para organizar a escrita
 % ----------------------------------------------------------
@@ -255,3 +255,25 @@
         \fi%
 	\fi%
 }%
+
+\begin{comment}
+    % Abreviatura em pt
+    \abreviatura{abrev.}{definição}  -> ret:
+    \abreviatura*{abrev.}{definição} -> ret: abrev. (definição)
+    \abreviatura.{abrev.}{definição} -> ret: definição (abrev.)
+    % Abreviatura em língua estrangeira
+    \abreviatura'{abrev.}{definição}{tradução} -> ret:
+    \abreviatura&{abrev.}{definição}{tradução} -> ret: tradução (abrev. - definição)
+
+    \simbolo{simbolo}{definição}  -> ret:
+    \simbolo*{simbolo}{definição} -> ret: simbolo
+
+    \marcador{tipo}{texto}             -> ret: texto
+    \marcador*{tipo}{texto}{alteração} -> ret: texto (alteração)
+        alterar     | alterado  | nota      | add
+        Vermelho    | Azul      | Verde     | Roxo
+
+    \indentedfont{tamanho}{texto} -> ret: Fonte: texto.
+
+    \includecode[linguagem]{label}{Titulo}{arquivo}
+\end{comment}

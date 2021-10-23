@@ -1,5 +1,10 @@
 \ProvidesPackage{conf-pacotes}
 
+%% --- Citações padrão ABNT ---
+% Para configurar as opções, ver: https://github.com/abntex/abntex2/blob/master/bibtex/bib/abntex2/abntex2-options.bib
+% Exemplo: \usepackage[alf,abnt-emphasize=bf, abnt-thesis-year=both, abnt-repeated-authoromit=yes, abnt-last-names=abnt, abnt-etal-cite,abnt-etal-list=3, abnt-etal-text=emph, abnt-and-type=e, abnt-doi=doi, abnt-url-package=none, abnt-verbatimentry=no]{abntex2cite}
+\usepackage[alf, abnt-etal-text=it]{abntex2cite}
+
 %% --- Remover conflito com abnTeX2 ---
 \let\su@ExpandTwoArgs\relax
 \let\IfSubStringInString\relax
@@ -11,20 +16,18 @@
 % Guia: http://www.math.hkbu.edu.hk/TeX/short-math-guide.pdf
 % ----------------------------------------------------------
 \usepackage{mathtools}		% Matemático
-%\usepackage[helvet]{sfmath}	% Fonte Arial
+%\usepackage[helvet]{sfmath}	% Usa a fonte Arial nas equações
 %\usepackage{fixmath}		% Letras gregas sem itálico
 %\everymath{\mathsf{\xdef\mysf{\mathgroup\the\mathgroup\relax}}\mysf} % Remover itálico das equações $$
 
 \usepackage[binary-units=true]{siunitx}[=v2]        % Provê unidades: http://tug.ctan.org/macros/latex/exptl/siunitx/siunitx.pdf
 \sisetup{locale = DE}
 
-
 % ----------------------------------------------------------
 % Outros Pacotes
 % ----------------------------------------------------------
 \renewcommand{\familydefault}{\sfdefault}
-\usepackage[scaled=1]{helvet}   % Fonte Arial
-%\usepackage{lmodern}			% Usa a fonte Latin Modern
+\usepackage[scaled=1]{helvet}   % Usa a fonte Arial no texto
 
 \usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
 \usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
@@ -38,8 +41,10 @@
 \usepackage{float}              % Mais opções de posicionamento de objetos, como 'H'
 \usepackage[printonlyused,withpage]{acronym}
 \usepackage[final]{pdfpages}    % Inclusão de PDFs
+\usepackage{lipsum}             % Geração de dummy text
 
 \usepackage{multicol, multirow}
+
 \usepackage[brazil]{babel}	% coloca as coisas em portugues no sumário.
 \usepackage[normalem]{ulem}	% provê sublinhados para textos (\ul)
 
@@ -47,9 +52,6 @@
 \usepackage{setspace}       % pacote para espaçamentos
 \usepackage{textcomp}       % pacote para simbolos REGISTERED e ESPECIAL
 %\usepackage{pgfplots}      % pacote para uso do pgfplots
-
-\usepackage[brazilian,hyperpageref]{backref}    % Paginas com as citações na bibl
-\usepackage[alf]{abntex2cite}	                % Citações padrão ABNT
 
 \usepackage{datatool}       % Ordenar a lista de abrev. e simbolos
 \usepackage{mfirstuc}       % Usada para deixar a primeira letra maiúscula

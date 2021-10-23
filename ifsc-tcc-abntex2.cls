@@ -10,7 +10,7 @@
 %% version 2005/12/01 or later.s
 %%
 %% This work has the LPPL maintenance status `maintained'.
-%% 
+%%
 %% The Current Maintainer of this work is github.com/joaoantoniocardoso
 %%
 %% Further information about abnTeX2 are available on http://abntex2.googlecode.com/
@@ -20,7 +20,7 @@
 \ProvidesClass{ifsc-tcc-abntex2}[2021/05/27 v1.0 Modelo de TCC do IFSC baseado em abnTeX2]
 
 %
-% Repassa todos os parametros a classe abntex2, 
+% Repassa todos os parametros a classe abntex2,
 \DeclareOption*{%
 	\PassOptionsToClass{\CurrentOption}{abntex2}%
 }
@@ -28,7 +28,7 @@
 \LoadClass{abntex2}
 
 % ----------------------------------------------------------
-% Referências de customização da classe AbnTeX2: 
+% Referências de customização da classe AbnTeX2:
 % https://github.com/abntex/abntex2/wiki/ComoCustomizar
 % ----------------------------------------------------------
 
@@ -130,26 +130,11 @@
 \makeoddhead{parpage}{}{}{\ABNTEXfontereduzida\thepage}
 
 % ----------------------------------------------------------
-% Configuração de espaçamento 
+% Configuração de espaçamento
 % ----------------------------------------------------------
 \setlength{\afterchapskip}{0.5cm}   % Espaço 1,5 após os capítulos
 \setlength{\parindent}{2.0cm}       % Identação do paragrafo conforme norma para TCC IFSC
 \setlength{\parskip}{0.1cm}         % Controle do espaçamento entre um parágrafo
-
-% ----------------------------------------------------------
-% Configurações do pacote backref
-% ----------------------------------------------------------
-\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
-\renewcommand{\backref}{}       % Texto padrão antes do número das páginas
-\renewcommand*{\backrefalt}[4]{ % Define os textos da citação
-	\ifcase #1 
-		Nenhuma citação no texto.
-	\or
-		Citado na página #2.
-	\else
-		Citado #1 vezes nas páginas #2.
-	\fi
-}
 
 % --------------------------------------------------------------------------
 % Personalização do modelo da abnTeX2 para se adequar com o modelo do IFSC
@@ -164,17 +149,17 @@
         \begin{SingleSpacing}
             \center
             \ABNTEXchapterfont\bfseries\ INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DE\\SANTA CATARINA - CÂMPUS FLORIANÓPOLIS\\DEPARTAMENTO ACADÊMICO DE ELETRÔNICA\\CURSO SUPERIOR DE ENGENHARIA ELETRÔNICA
-            
+
             \vspace*{3.0cm}
-            
+
             \ABNTEXchapterfont\bfseries\MakeUppercase\imprimirautor
-        
+
             \begin{vplace}[0.5]
                 \begin{center}
                     \ABNTEXchapterfont\SingleSpacing\bfseries\Large\MakeUppercase\imprimirtitulo
                 \end{center}
             \end{vplace}
-            
+
             \begin{center}
                 \ABNTEXchapterfont\bfseries\imprimirlocal, \ABNTEXchapterfont\bfseries\imprimirdata
             \end{center}
@@ -183,26 +168,26 @@
 }
 
 % ----------------------------------------------------------
-% folha de rosto 
+% folha de rosto
 % ----------------------------------------------------------
 \makeatletter
 \renewcommand{\folhaderostocontent}{
     \begin{SingleSpacing}
         \center
         \ABNTEXchapterfont\bfseries\ INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DE\\SANTA CATARINA - CÂMPUS FLORIANÓPOLIS\\DEPARTAMENTO ACADÊMICO DE ELETRÔNICA\\CURSO SUPERIOR DE ENGENHARIA ELETRÔNICA
-        
+
         \vspace*{3.0cm}     % três espaços simples - conforme norma para TCC do IFSC
-        
+
         \ABNTEXchapterfont\bfseries\MakeUppercase\imprimirautor
-        
+
         %\begin{vplace}[0.5]
-        \vspace*{\fill} 
+        \vspace*{\fill}
             \begin{center}
                 \ABNTEXchapterfont\SingleSpacing\bfseries\Large\MakeUppercase\imprimirtitulo
             \end{center}
-        \vspace*{\fill} 
+        \vspace*{\fill}
         %\end{vplace}
-        
+
         \hspace{.45\textwidth}
         \begin{minipage}{.5\textwidth}
             \begin{SingleSpacing}
@@ -210,7 +195,7 @@
                 \vspace*{1.0cm}
 
                 \imprimirorientadorRotulo~Prof. Dr. \imprimirorientador\par
-  
+
                 \vspace*{1.0cm}
                 	\@ifundefined{\imprimircoorientador}{}{
 	                \imprimircoorientadorRotulo~Prof. Dr. \imprimircoorientador
@@ -235,10 +220,10 @@
 \makeatletter
 \hypersetup{                        % informações do PDF
    	%pagebackref=true,
-	pdftitle={\@title}, 
+	pdftitle={\@title},
 	pdfauthor={\@author},
    	pdfsubject={\imprimirpreambulo},
-	pdfkeywords={Palavra chave 1}{Palavra chave 2}{Palavra chave 3}, 
+	pdfkeywords={Palavra chave 1}{Palavra chave 2}{Palavra chave 3},
 	colorlinks=true,       		% false: boxed links; true: colored links
    	linkcolor=black,          	% color of internal links
    	citecolor=black,        	% color of links to bibliography
@@ -251,7 +236,7 @@
 % ----------------------------------------------------------
 % compila o indice
 % ----------------------------------------------------------
-\makeindex 
+\makeindex
 
 % --------------------------------------------------------------------------
 % Configurações para inserir código fonte de programas - pacote listings
@@ -298,7 +283,7 @@
 
 \lstset{ %
     aboveskip=\bigskipamount,
-    backgroundcolor=\color{colBack},   % choose the background color; you must add \usepackage{color} or 
+    backgroundcolor=\color{colBack},   % choose the background color; you must add \usepackage{color} or
     basicstyle=\ttfamily\footnotesize,       % the size of the fonts that are used for the code
     breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
     breaklines=true,                 % sets automatic line breaking
